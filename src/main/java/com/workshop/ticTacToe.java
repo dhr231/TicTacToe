@@ -16,6 +16,16 @@ public class ticTacToe {
         }
         computerSymbol=(playerSymbol=='X')? 'O' :'X';
         System.out.println(computerSymbol);
+        Scanner scanner=new Scanner(System.in);
+        int location=scanner.nextInt();
+        HashMap<Integer, Boolean> locationAvailable=inputUserLocation(location);
+        if(locationAvailable.get(location)){
+            System.out.println("location available");
+            locationAvailable.put(location,false);
+        }
+        else{
+            System.out.println("location unavailable, please select another location");
+        }
 
     }
 
@@ -41,6 +51,16 @@ public class ticTacToe {
         for(int j=7;j<=9;j++){
             System.out.print(board[j]+ " " + "|");
         }
+
+    }
+    public static HashMap<Integer, Boolean> inputUserLocation(int location){
+        boolean isAvailable=true;
+        HashMap<Integer, Boolean> locationAvailable=new HashMap<Integer, Boolean>();
+        locationAvailable.put(location, isAvailable);
+        return locationAvailable;
+
+
+
     }
 
 }
