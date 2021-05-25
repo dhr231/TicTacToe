@@ -4,11 +4,7 @@ import java.util.*;
 public class ticTacToe {
     public static void main(String[] args){
         char[] board=createBoard();
-        for(int i=0;i<10;i++) {
-            board[i] = '-';
-            System.out.print(board[i] + "|");
-        }
-        System.out.println();
+        displayBoard(board);
         char playerSymbol=gameInput();
         char computerSymbol;
         if(playerSymbol=='X' || playerSymbol=='O'){
@@ -16,6 +12,7 @@ public class ticTacToe {
         }
         else{
             System.out.println("please input a valid response (X or O)");
+
         }
         computerSymbol=(playerSymbol=='X')? 'O' :'X';
         System.out.println(computerSymbol);
@@ -31,6 +28,19 @@ public class ticTacToe {
         Scanner scn=new Scanner(System.in);
         char inputXO=scn.next().charAt(0);
         return inputXO;
+    }
+    public static void displayBoard(char[] board){
+        for(int j=1;j<=3;j++){
+            System.out.print(board[j]+ " " + "|");
+        }
+        System.out.println();
+        for(int j=4;j<=6;j++){
+            System.out.print(board[j]+ " " + "|");
+        }
+        System.out.println();
+        for(int j=7;j<=9;j++){
+            System.out.print(board[j]+ " " + "|");
+        }
     }
 
 }
