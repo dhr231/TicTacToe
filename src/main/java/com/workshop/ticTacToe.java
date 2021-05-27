@@ -24,7 +24,8 @@ public class ticTacToe {
             location=scanner.nextInt();
         }
         System.out.println("This position is available");
-        //assign board[location] for current turn of computer or user.
+        board[location]=playerSymbol;
+
 
 
 
