@@ -3,6 +3,8 @@ import java.util.*;
 
 public class ticTacToe {
     public static void main(String[] args){
+        int heads=0;
+        int tails=1;
         char[] board=createBoard();
         displayBoard(board);
         char playerSymbol=gameInput();
@@ -25,6 +27,13 @@ public class ticTacToe {
         }
         System.out.println("This position is available");
         board[location]=playerSymbol;
+        int outcome=toss();
+        if(outcome==heads){
+            System.out.println("Heads, User may start the game");
+        }
+        else{
+            System.out.println("Tails, Computer will start the game");
+        }
 
 
 
@@ -59,9 +68,11 @@ public class ticTacToe {
         char[] board=new char[10];
         return board[location]==' ';
 
+    }
 
-
-
+    public static int toss(){
+        int outcome=(int) (Math.random() *2);
+        return outcome;
     }
 
 }
