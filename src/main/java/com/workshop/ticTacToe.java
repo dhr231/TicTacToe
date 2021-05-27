@@ -7,6 +7,7 @@ public class ticTacToe {
         displayBoard(board);
         char playerSymbol=gameInput();
         char computerSymbol;
+
         if(playerSymbol=='X' || playerSymbol=='O'){
             System.out.println("player input received");
         }
@@ -16,21 +17,21 @@ public class ticTacToe {
         }
         computerSymbol=(playerSymbol=='X')? 'O' :'X';
         System.out.println(computerSymbol);
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner=new Scanner((System.in));
         int location=scanner.nextInt();
-        HashMap<Integer, Boolean> locationAvailable=inputUserLocation(location);
-        if(locationAvailable.get(location)){
-            System.out.println("location available");
-            locationAvailable.put(location,false);
+        while(!checkInputLocation(location)){
+            System.out.println("This board position is not available.. Please input again");
+            location=scanner.nextInt();
         }
-        else{
-            System.out.println("location unavailable, please select another location");
-        }
+        System.out.println("This position is available");
+        //assign board[location] for current turn of computer or user.
+
+
 
     }
 
     public static char[] createBoard(){
-        char[] board=new char[10];
+        char[] board={' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',};
         return board;
     }
 
@@ -53,11 +54,10 @@ public class ticTacToe {
         }
 
     }
-    public static HashMap<Integer, Boolean> inputUserLocation(int location){
-        boolean isAvailable=true;
-        HashMap<Integer, Boolean> locationAvailable=new HashMap<Integer, Boolean>();
-        locationAvailable.put(location, isAvailable);
-        return locationAvailable;
+    public static boolean checkInputLocation(int location){
+        char[] board=new char[10];
+        return board[location]==' ';
+
 
 
 
