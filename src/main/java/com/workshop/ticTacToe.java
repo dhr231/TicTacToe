@@ -75,4 +75,34 @@ public class ticTacToe {
         return outcome;
     }
 
+    public int gamePlay(char[] board, char playerSymbol, char computerSymbol){
+        if ((board[0] == playerSymbol && board[1] == playerSymbol && board[2] == playerSymbol) || (board[3] == playerSymbol && board[4] == playerSymbol && board[5] == playerSymbol)
+                || (board[6] == playerSymbol && board[7] == playerSymbol && board[8] == playerSymbol) || (board[0] == playerSymbol && board[3] == playerSymbol && board[6] == playerSymbol)
+                || (board[1] == playerSymbol && board[4] == playerSymbol && board[7] == playerSymbol) || (board[2] == playerSymbol && board[5] == playerSymbol && board[8] == playerSymbol)
+                || (board[0] == playerSymbol && board[4] == playerSymbol && board[8] == playerSymbol) || (board[2] == playerSymbol && board[4] == playerSymbol && board[6] == playerSymbol)) {
+            System.out.println("User has won the match");
+            return 0;
+        }
+        if ((board[0] == computerSymbol && board[1] == computerSymbol && board[2] == computerSymbol) || (board[3] == computerSymbol && board[4] == computerSymbol && board[5] == computerSymbol)
+                || (board[6] == computerSymbol && board[7] == computerSymbol && board[8] == computerSymbol) || (board[0] == computerSymbol && board[3] == computerSymbol && board[6] == computerSymbol)
+                || (board[1] == computerSymbol && board[4] == computerSymbol && board[7] == computerSymbol) || (board[2] == computerSymbol && board[5] == computerSymbol && board[8] == computerSymbol)
+                || (board[0] == computerSymbol && board[4] == computerSymbol && board[8] == computerSymbol) || (board[2] == computerSymbol && board[4] == computerSymbol && board[6] == computerSymbol)) {
+            System.out.println("Computer has won the match");
+            return 0;
+        }
+        int flag = 0;
+        for (int i = 0; i < 9; i++) {
+            if (board[i] == ' ') {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            System.out.println("Match Tied");
+            return 0;
+        }
+        return 1;
+
+    }
+
 }
