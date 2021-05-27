@@ -148,27 +148,9 @@ public class ticTacToe {
             board[8] = computer;
             return board;
         }
-        if (board[4] == ' ') {
-            board[4] = computer;
-            return board;
-        }
-        if (board[1] == ' ') {
-            board[1] = computer;
-            return board;
-        }
-        if (board[3] == ' ') {
-            board[3] = computer;
-            return board;
-        }
-        if (board[5] == ' ') {
-            board[5] = computer;
-            return board;
-        }
-        if (board[7] == ' ') {
-            board[7] = computer;
-            return board;
-        }
+
         return board;
     }
-
 }
+
+
